@@ -11,11 +11,11 @@ function eqArrays(arr1, arr2) {
   }
 };
 
-function assertArraysEqual(arr1, arr2) {
-  if (eqArrays(arr1, arr2)) {
-    return console.log(`⚖️ Assertion Passed: [${arr1}] === [${arr2}]`);
+function assertArraysEqual(actualArr, expectedArr) {
+  if (eqArrays(actualArr, expectedArr)) {
+    return console.log(`⚖️ Assertion Passed: [${actualArr}] === [${expectedArr}]`);
   } else {
-    return console.log(`📉 Assertion Failed: [${arr1}] !== [${arr2}]`);
+    return console.log(`📉 Assertion Failed: [${actualArr}] !== [${expectedArr}]`);
   }
 };
 
