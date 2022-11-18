@@ -4,7 +4,7 @@ function assertEqual(acutal, expected) {
   } else {
     return console.log(`🤡 Assertion Failed: [${acutal}] !== [${expected}]`);
   }
-};
+}
 
 function eqArrays(arr1, arr2) {
   if (arr1.length != arr2.length) {
@@ -17,7 +17,7 @@ function eqArrays(arr1, arr2) {
     }
     return true;
   }
-};
+}
 
 function eqObjects(obj1, obj2) {
   const key1 = Object.keys(obj1);
@@ -27,13 +27,13 @@ function eqObjects(obj1, obj2) {
     return false;
   }
   for (const key in obj1) {
-    //console.log(obj1[key])
-    if (obj1[key] !== obj2[key]) {
-      return false;
+    const val1 = Object.values(obj1).sort();
+    const val2 = Object.values(obj2).sort();
+    if (Array.isArray(val1) && Array.isArray(val2)) {
+      return eqArrays(val1.pop(), val2.pop());
     }
   }
-  console.log(obj1.length);
-  console.log(obj2.length);
+
   return true;
 }
 
