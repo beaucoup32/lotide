@@ -21,17 +21,16 @@ function eqArrays(arr1, arr2) {
 
 function without(arr, rmArr) {
   let newArr = [];
-  for (let i = 0; i < arr.length; i++) {
-    for (let z = 0; z < rmArr.length; z++) {
-      if (arr[i] != rmArr[z]) {
-        newArr.push(arr[i]);
-      }
+  for (let item of arr) {
+    if (!rmArr.includes(item)) {
+      newArr.push(item);
+
     }
   }
   return newArr;
 }
 
 const words = ["hello", "world", "lighthouse"];
-without(words, ["lighthouse"]); // no need to capture return value for this test case
+console.log(without(words, ["lighthouse"])); // no need to capture return value for this test case
 // Make sure the original array was not altered by the without function
 assertArraysEqual(words, ["hello", "world", "lighthouse"]);
